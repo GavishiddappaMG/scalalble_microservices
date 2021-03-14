@@ -1,0 +1,10 @@
+<div class="dialog">
+    <div class="dialog-header">{{data.action}}</div>
+    <div class="dialog-content">
+      {{data.confirmation}}
+    </div>
+    <div class="dialog-footer">
+        <button mat-button (click)="onNoClick(false)" color="primary">CANCLE</button>
+        <button mat-button (click)="onNoClick(true)" color="primary">CONFIRM</button>
+    </div>
+  </div>

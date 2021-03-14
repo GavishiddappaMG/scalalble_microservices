@@ -1,0 +1,48 @@
+.example-card {
+    padding: 0;
+    mat-card-content   {
+        padding: 1rem;
+        .download-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin-bottom: 1rem;
+            // grid-
+        }
+        .form-input-controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 1rem;
+        }
+    }
+
+    .form-group {
+        width: 100%;
+        .mat-form-field {
+            width: 100%;
+        }
+    }
+    .form-btns {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+    }
+
+    .grid {
+        button {
+            text-align: start;
+
+            &:last-of-type {
+                margin-left: 2rem;
+            }
+            &:first-of-type {
+                margin-right: 2rem;
+            }
+        }
+        .download-btns {
+            display: flex;
+            height: 80%;
+            align-items: center;
+            justify-content: space-around;
+        }
+    }
+}

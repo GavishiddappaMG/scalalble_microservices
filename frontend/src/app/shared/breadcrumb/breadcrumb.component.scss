@@ -1,0 +1,28 @@
+
+
+.breadcrumb {
+    list-style-type: none;
+    height: 30px;
+    margin: 0;
+    padding: 5px 10px;
+    border-bottom: 1px solid #cacaca;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .breadcrumb-item {
+        display: inline;
+        a {
+            text-decoration: none;
+        }
+        .icon {
+            vertical-align: middle;
+        }
+    }
+    .hide {
+        display: none;
+    }
+}
+
+.remove-border {
+    border: none;
+}

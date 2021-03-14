@@ -1,0 +1,143 @@
+<form [formGroup]="form" (ngSubmit)="updateData()">
+
+  <mat-card class="example-card">
+    <mat-toolbar color="primary">
+      Create Function
+    </mat-toolbar>
+    <mat-card-content>
+
+      <div class="form-input-controls">
+        <div class="grid">
+          <div class="form-group">
+            <app-file-upload formControlName="file" (fileChanged)="onFileSelect($event)" [progress]="progress">
+            </app-file-upload>
+            <div class="invalid-feedback" style="display: block">
+              <ng-container *ngIf="hasError('file', 'required')">This field is required</ng-container>
+              <ng-container *ngIf="hasError('file', 'requiredFileType')">Only .zip file allowed 🤡</ng-container>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="download-btns">
+              <button type="button" mat-raised-button color="primary" (click)="downloadFunction('sample.js')">Sample Function</button>
+              <button type="button" mat-raised-button color="primary" (click)="downloadZip('sample.zip')">Sample zip file</button>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Select Function Builder</mat-label>
+              <mat-select formControlName="functionBuilder">
+                <mat-option value="1">option 1</mat-option>
+                <mat-option value="2">option 2</mat-option>
+                <mat-option value="3">option 3</mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('functionBuilder').hasError('required')">This field is required</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="grid">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Cluster Ip</mat-label>
+              <input matInput formControlName="clusterIp" placeholder="Placeholder">
+              <mat-error *ngIf="form.get('clusterIp').hasError('required')">This field is required</mat-error>
+              <mat-error *ngIf="form.get('clusterIp').hasError('pattern')">Invaid IP Address</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Username</mat-label>
+              <input matInput formControlName="username" placeholder="Placeholder">
+              <mat-error *ngIf="form.get('functionName').hasError('required')">This field is required</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="grid">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input matInput formControlName="password" placeholder="Placeholder">
+              <mat-error *ngIf="form.get('password').hasError('required')">This field is required</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Function API URL</mat-label>
+              <input matInput formControlName="functionURL" placeholder="Placeholder">
+              <mat-error *ngIf="form.get('functionURL').hasError('required')">This field is required</mat-error>
+              <mat-error *ngIf="form.get('functionURL').hasError('exists')">This URL is already taken</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Select Function Method</mat-label>
+              <mat-select formControlName="functionMethod">
+                <mat-option value="GET">GET</mat-option>
+                <mat-option value="POST">POST</mat-option>
+                <mat-option value="PUT">PUT</mat-option>
+                <mat-option value="PATCH">PATCH</mat-option>
+                <mat-option value="DELTE">DELETE</mat-option>
+                <mat-option value="HEAD">HEAD</mat-option>
+                <mat-option value="JSONP">JSONP</mat-option>
+                <mat-option value="OPTIONS">OPTIONS</mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('functionMethod').hasError('required')">This field is required</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <ng-template [ngIf]="enableFunctionPackage">
+          <div class="grid">
+            <div class="form-group">
+              <mat-form-field appearance="outline">
+                <mat-label>Function Package</mat-label>
+                <input matInput formControlName="functionPackage" placeholder="Placeholder">
+                <mat-error *ngIf="form.get('functionPackage').hasError('required')">This field is required</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </ng-template>
+        <div class="grid">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Function Name</mat-label>
+              <input matInput formControlName="functionName" placeholder="Placeholder">
+              <mat-error *ngIf="form.get('functionName').hasError('required')">This field is required</mat-error>
+              <mat-error *ngIf="form.get('functionName').hasError('exists')">This Name is already taken</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="grid">
+            <div class="form-group">
+                <mat-form-field appearance="outline">
+                  <mat-label>Select Function Env</mat-label>
+                  <mat-select formControlName="functionEnv">
+                    <mat-option value="nodejs">Nodejs</mat-option>
+                    <mat-option value="python">Python</mat-option>
+                    <mat-option value="java">Java</mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('functionEnv').hasError('required')">This field is required</mat-error>
+                </mat-form-field>
+              </div>
+        </div>
+      </div>
+      <div class="grid form-btns">
+        <button type="button" mat-raised-button color="warn" [routerLink]="['../functions']">Cancel</button>
+        <button type="button" mat-button color="warn" (click)="reset()">Reset</button>
+        <button mat-raised-button color="primary">Submit</button>
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+</form>

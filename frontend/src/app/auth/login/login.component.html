@@ -1,0 +1,25 @@
+<!-- BEFGIN  -->
+<div class="login-form-container">
+  <mat-card>
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <!-- <span *ngIf=errorStatus class="loginError">
+          {{errorMessage}}
+        </span> -->
+        <p>
+          <mat-form-field>
+            <input type="text" matInput placeholder="Username" formControlName="userName">
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input type="password" matInput placeholder="Password" formControlName="password">
+          </mat-form-field>
+        </p>
+        <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+        <button type="submit" [disabled]="!form.valid" mat-raised-button color="primary">Login</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

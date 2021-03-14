@@ -1,0 +1,10 @@
+<!-- breadcrumb -->
+<ol class="breadcrumb" [ngClass]="{'remove-border': bcLength - 1 <= 0}">
+  <li *ngFor="let breadcrumb of breadcrumbs$ | async; index as i" class="breadcrumb-item"
+    [ngClass]="{'hide': 0 === bcLength - 1}" [@routerTransition]>
+    <a [routerLink]="[breadcrumb.url]">
+      {{ breadcrumb.label }}
+    </a>
+    <mat-icon class="icon" *ngIf="i < bcLength - 1 ">keyboard_arrow_right</mat-icon>
+  </li>
+</ol>

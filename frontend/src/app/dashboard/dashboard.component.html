@@ -1,0 +1,31 @@
+<div class="grid-container">
+  <app-card *ngFor="let item of items;">
+    <img [src]="item.imagePath" class="card-img-top" alt="item.title">
+    <h5 class="card-title">{{ item.title }}</h5>
+    <p class="card-text">{{item.description}}</p>
+    <button class="btn btn-primary">Details</button>
+  </app-card>
+</div>
+
+
+<div class="custom-checkbox">
+  <label class="checkbox-container">One
+    <input type="checkbox" checked="checked">
+    <span class="checkmark"></span>
+  </label>
+
+  <label class="checkbox-container">Two
+    <input type="checkbox">
+    <span class="checkmark"></span>
+  </label>
+
+  <label class="checkbox-container">Three
+    <input type="checkbox">
+    <span class="checkmark"></span>
+  </label>
+
+  <label class="checkbox-container">Four
+    <input type="checkbox">
+    <span class="checkmark"></span>
+  </label>
+</div>

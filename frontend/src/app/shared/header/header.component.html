@@ -1,0 +1,59 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row class="toolbar">
+    <div class="brand">
+      <mat-icon (click)="toggle()">menu</mat-icon>
+      <div class="link" [routerLink]="'/home'">Serverless Deploy</div>
+    </div>
+    <!-- <div>
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>format_color_fill</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <mat-checkbox [checked]="isThemeDark" (click)="$event.stopPropagation()" (change)="toggleDarkness()"
+          class="mat-menu-item theme-selector-is-dark">Dark
+        </mat-checkbox>
+
+        <mat-grid-list cols="2" class="theme-selectors-container">
+          <mat-grid-tile *ngFor="let theme of themes">
+            <button mat-button class="theme-selector" (click)="$event.stopPropagation(); setActiveTheme(theme)">
+              <div [attr.class]="theme + ' theme-primary center'">
+                <div [attr.class]="theme + ' theme-accent'"></div>
+                <div [attr.class]="theme + ' theme-warn'"></div>
+                <mat-icon *ngIf="activeTheme===theme" class="center theme-check">check</mat-icon>
+              </div>
+            </button>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-menu>
+    </div> -->
+    <div class="bell">
+      <!-- <div class="notification-box" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <span class="notification-count" *ngIf="notificationCount>0">{{ notificationCount }}</span>
+        <div class="notification-bell">
+          <span class="bell-top"></span>
+          <span class="bell-middle"></span>
+          <span class="bell-bottom"></span>
+          <span class="bell-rad"></span>
+        </div>
+      </div>
+      <mat-menu #menu="matMenu">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title>Notitfications</mat-card-title>
+          </mat-card-header>
+          <mat-divider></mat-divider>
+          <mat-card-content>
+            <div class="notifications">
+              <div class="notification" *ngFor="let notification of nofitifications;index as i;" [ngClass]="{ 'notify': !notification.status }" (click)="readMessage(notification)">
+                <p *ngIf="i<10">{{ notification.title }}</p>
+              </div>
+              <p class="empty_string" *ngIf="nofitifications.length===0">No Messages</p>
+            </div>
+            <p class="list" *ngIf="nofitifications.length>0" [routerLink]="'/home/notifications'">Show All</p>
+          </mat-card-content>
+        </mat-card>
+      </mat-menu> -->
+      <button mat-button (click)="logout()">Logout</button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

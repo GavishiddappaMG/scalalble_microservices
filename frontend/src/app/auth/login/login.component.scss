@@ -1,0 +1,52 @@
+@import "../../../theme/theme.scss";
+@import "../../../theme/variables";
+
+.login-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(45deg, black, transparent);
+  mat-card {
+      padding: 3rem 1rem;
+      mat-card-title {
+          margin-bottom: 2rem;
+      }
+  }
+  form {
+      button {
+          width: 100%;
+      }
+
+      .error-message {
+          text-align: center;
+          color: #f44336;
+          margin-bottom: 1rem;
+      }
+  }
+}
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+.error {
+  padding: 16px;
+  width: 300px;
+  color: white;
+  background-color: red;
+}
+.loginError {
+  padding: 16px;
+  width: 300px;
+  // color: white;
+  color: red;
+}
+.button {
+  display: flex;
+  justify-content: flex-end;
+}
